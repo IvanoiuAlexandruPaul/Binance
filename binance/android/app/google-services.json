@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "838593097600",
+    "firebase_url": "https://beacon-333811-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "beacon-333811",
+    "storage_bucket": "beacon-333811.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838593097600:android:b1838c67a8ee58ebcddb65",
+        "android_client_info": {
+          "package_name": "com.example.binance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "838593097600-lma8mv6rang52718i9e1p8e2jvsfo0v1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.binance",
+            "certificate_hash": "1949fbae86d25397ae70583881d17785b060be62"
+          }
+        },
+        {
+          "client_id": "838593097600-g4dmj8psvrlltvfojcg7ssft8uq9qgi7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXk2vmSpCJ5ZhB1Ae8a5VYd3VeeBZe_-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "838593097600-g4dmj8psvrlltvfojcg7ssft8uq9qgi7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
