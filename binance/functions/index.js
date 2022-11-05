@@ -5,7 +5,7 @@ admin.initializeApp();
 const database = admin.firestore();
 const page = 1;
 const fiat = "RON";
-const tradeType = "BUY";
+const tradeType = "SELL";
 const asset = "USDT";
 const payTypes = ["ING"];
 let finalData = [];
@@ -84,13 +84,13 @@ const entireCall = async function() {
   processData();
 };
 
-exports.scheduledFunction = functions.pubsub
-      .schedule("every 1 minutes")
+exports.scheduledFunctionINGSELL = functions.region('europe-west1').pubsub
+      .schedule("* * * * *")
       .onRun(async (context) => {
-        await database.collection("SebiBinanceSale").doc("BCR Bank").delete();
+        await database.collection("SebiBinanceSELL").doc("ING").delete();
         await entireCall();
-        for (let i = 0; i < finalData.length; i++) {
-          await database.collection("SebiBinanceSale").doc("BCR Bank")
+        for (let i = 0; i < 5; i++) {
+          await database.collection("SebiBinanceSELL").doc("ING")
               .collection("1").doc(i.toString())
               .set({
                 "tradeType": finalData[i]["tradeType"],
