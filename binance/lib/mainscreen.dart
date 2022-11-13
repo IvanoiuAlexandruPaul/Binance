@@ -30,16 +30,22 @@ class _mainScreenState extends State<mainScreen> {
                       color: Color(0xFFf6465d),
                       width: 230.0,
                       padding: const EdgeInsets.only(bottom: 5.0),
-                    child:
-                    const Text(
-                      "SELL",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Color(0xFFe4e8ed),fontWeight : FontWeight.bold,height: 2, fontSize: 13),
-                    ),
+                      child: const Text(
+                        "SELL",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Color(0xFFe4e8ed),
+                            fontWeight: FontWeight.bold,
+                            height: 2,
+                            fontSize: 13),
+                      ),
                     ),
                     DataWidget("Revolut", "SebiBinanceBUY", "Revolut"),
                     DataWidget("ING", "SebiBinanceBUY", "ING"),
-
+                    DataWidget("SEK", "SebiBinanceBUY", "ZEN"),
+                    DataWidget("GBP", "SebiBinanceBUY", "GBP"),
+                    DataWidget("USD", "SebiBinanceBUY", "USD"),
+                    DataWidget("EUR", "SebiBinanceBUY", "EUR"),
                   ],
                 ),
               ),
@@ -53,15 +59,22 @@ class _mainScreenState extends State<mainScreen> {
                       color: Color(0xFF2ebd85),
                       width: 230.0,
                       padding: const EdgeInsets.only(bottom: 5.0),
-                      child:
-                    const Text(
-                      "BUY",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Color(0xFFe4e8ed),fontWeight : FontWeight.bold,height: 2, fontSize: 13),
-                    ),
+                      child: const Text(
+                        "BUY",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Color(0xFFe4e8ed),
+                            fontWeight: FontWeight.bold,
+                            height: 2,
+                            fontSize: 13),
+                      ),
                     ),
                     DataWidget("Revolut", "SebiBinanceSELL", "Revolut"),
                     DataWidget("ING", "SebiBinanceSELL", "ING"),
+                    DataWidget("SEK", "SebiBinanceSELL", "ZEN"),
+                    DataWidget("GBP", "SebiBinanceSELL", "GBP"),
+                    DataWidget("USD", "SebiBinanceSELL", "USD"),
+                    DataWidget("EUR", "SebiBinanceSELL", "EUR"),
                   ],
                 ),
               ),

@@ -6,7 +6,8 @@ import 'mainscreen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: FirebaseOptions(
+    name: "Sebi",
+    options: const FirebaseOptions(
         apiKey: "AIzaSyCcaZiGnW88v7B4jP5thI2J69Mc8R6cLLs",
         authDomain: "beacon-333811.firebaseapp.com",
         databaseURL:

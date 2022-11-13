@@ -4,10 +4,10 @@ const admin = require("firebase-admin");
 admin.initializeApp();
 const database = admin.firestore();
 const page = 1;
-const fiat = "RON";
-const tradeType = "SELL";
+const fiat = "EUR";
+const tradeType = "BUY";
 const asset = "USDT";
-const payTypes = ["ING"];
+const payTypes = ["ZEN"];
 let finalData = [];
 let tempDataBeforeProccessing = [];
 
@@ -84,27 +84,4 @@ const entireCall = async function() {
   processData();
 };
 
-exports.scheduledFunctionINGSELL = functions.region('europe-west1').pubsub
-      .schedule("* * * * *")
-      .onRun(async (context) => {
-        await database.collection("SebiBinanceSELL").doc("ING").delete();
-        await entireCall();
-        for (let i = 0; i < 5; i++) {
-          await database.collection("SebiBinanceSELL").doc("ING")
-              .collection("1").doc(i.toString())
-              .set({
-                "tradeType": finalData[i]["tradeType"],
-                "asset": finalData[i]["asset"],
-                "fiatUnit": finalData[i]["fiatUnit"],
-                "price": finalData[i]["price"],
-                "surplusAmount": finalData[i]["surplusAmount"],
-                "maxSingleTransAmount": finalData[i]["maxSingleTransAmount"],
-                "minSingleTransAmount": finalData[i]["minSingleTransAmount"],
-                "nickName": finalData[i]["nickName"],
-                "monthOrderCount": finalData[i]["monthOrderCount"],
-                "monthFinishRate": finalData[i]["monthFinishRate"],
-                "payTypes": finalData[i]["payTypes"],
-              });
-        }
-        return console.log("Succes Upload of the data ");
-      });
+entireCall();

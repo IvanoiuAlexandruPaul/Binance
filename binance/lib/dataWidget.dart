@@ -29,13 +29,14 @@ class DataWidget extends StatelessWidget {
           Container(
             color: Color(0xFF1f2630),
             padding: const EdgeInsets.only(top: 5.0),
-          child:
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(nameOfThefield,style: TextStyle(fontWeight : FontWeight.bold, color: Color(0xFFfbdb3b))),
-            ],
-          ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(nameOfThefield,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Color(0xFFfbdb3b))),
+              ],
+            ),
           ),
           StreamBuilder<QuerySnapshot>(
             stream: _usersStream,
@@ -54,7 +55,7 @@ class DataWidget extends StatelessWidget {
                 shrinkWrap: true,
                 children: snapshot.data!.docs.map((DocumentSnapshot document) {
                   Map<String, dynamic> data =
-                  document.data()! as Map<String, dynamic>;
+                      document.data()! as Map<String, dynamic>;
                   counter++;
                   banci = new StringBuffer();
                   var string = data['payTypes'];
@@ -105,6 +106,11 @@ class DataWidget extends StatelessWidget {
                           banci.write("UNIC, ");
                         }
                         break;
+                      case "ZEN":
+                        {
+                          banci.write("ZEN, ");
+                        }
+                        break;
                     }
                   }
                   num n = num.parse(data['monthFinishRate'].toStringAsFixed(2));
@@ -115,35 +121,84 @@ class DataWidget extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Text("---------------------------------------------------------------------",style: TextStyle(fontSize:11.96,color: Color(0xFF657189))),
+                            Text(
+                                "---------------------------------------------------------------------",
+                                style: TextStyle(
+                                    fontSize: 10, color: Color(0xFF657189))),
                           ],
                         ),
-                        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("  ${counter}",style: TextStyle(fontSize: 10, color: Color(0xFFdbe2ea)),),
-                            Text("${data['nickName']}",style: TextStyle(fontWeight : FontWeight.bold, fontSize: 13.5,color: data['nickName'] == "Beacon"
-                                ? Color(0xFF2ebd85)
-                                : Color(0xFFdbe2ea)),),
-                            Text("|",style: TextStyle(fontSize: 15, color: Color(0xFF657189)),),
-                            Text("${data['monthOrderCount']}""@$n%   ",style: TextStyle(fontSize: 12, color: Color(0xFFdbe2ea)),),
+                            Text(
+                              "  ${counter}",
+                              style: TextStyle(
+                                  fontSize: 10, color: Color(0xFFdbe2ea)),
+                            ),
+                            Text(
+                              "${data['nickName']}",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 10,
+                                  color: data['nickName'] == "Beacon"
+                                      ? Color(0xFF2ebd85)
+                                      : Color(0xFFdbe2ea)),
+                            ),
+                            Text(
+                              "|",
+                              style: TextStyle(
+                                  fontSize: 10, color: Color(0xFF657189)),
+                            ),
+                            Text(
+                              "${data['monthOrderCount']}" "@$n%   ",
+                              style: const TextStyle(
+                                  fontSize: 10, color: Color(0xFFdbe2ea)),
+                            ),
                           ],
                         ),
-                        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(" ${data['price']}",style: TextStyle(fontWeight : FontWeight.bold, fontSize: 18, color: Color(0xFFb9a22a)),),
-                            Text("|",style: TextStyle(fontSize: 15, color: Color(0xFF657189)),),
-                            Text("${data['surplusAmount']}",style: TextStyle(fontWeight : FontWeight.bold, fontSize: 14, color: Color(0xFFdbe2ea)),),
-                            Text("|",style: TextStyle(fontSize: 15, color: Color(0xFF657189)),),
-                            Text("${data['minSingleTransAmount']}""-${data['maxSingleTransAmount']}   ",style: TextStyle(fontSize: 12, color: Color(0xFFdbe2ea)),),
+                            Text(
+                              " ${data['price']}",
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 10,
+                                  color: Color(0xFFb9a22a)),
+                            ),
+                            const Text(
+                              "|",
+                              style: TextStyle(
+                                  fontSize: 10, color: Color(0xFF657189)),
+                            ),
+                            Text(
+                              "${data['surplusAmount']}",
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 10,
+                                  color: Color(0xFFdbe2ea)),
+                            ),
+                            const Text(
+                              "|",
+                              style: TextStyle(
+                                  fontSize: 10, color: Color(0xFF657189)),
+                            ),
+                            Text(
+                              "${data['minSingleTransAmount']}"
+                              "-${data['maxSingleTransAmount']}   ",
+                              style: TextStyle(
+                                  fontSize: 10, color: Color(0xFFdbe2ea)),
+                            ),
                           ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             SizedBox(
-                              width: 220,
+                              width: 200,
                               child: Text(
-                                "  $banci   ",style: TextStyle(color: Color(0xFFdbe2ea)),
+                                "  $banci   ",
+                                style: TextStyle(color: Color(0xFFdbe2ea)),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 6,
                               ),
